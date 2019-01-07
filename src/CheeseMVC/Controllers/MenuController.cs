@@ -45,7 +45,7 @@ namespace CheeseMVC.Controllers
                 context.Menus.Add(newMenu);
                 context.SaveChanges();
 
-                return Redirect("/Menu/ViewMenu" + newMenu.ID);
+                return Redirect(string.Format("/Menu/ViewMenu/{0}", newMenu.ID));
             }
 
             return View(addMenuViewModel);
@@ -103,9 +103,7 @@ namespace CheeseMVC.Controllers
                     context.CheeseMenus.Add(menuItem);
                     context.SaveChanges();
                 }
-
-                return Redirect(string.Format("/Menu/ViewMenu/{0}", addMenuItemViewModel));
-
+                return Redirect(string.Format("/Menu/ViewMenu/{0}", menuID));
             }
 
             return View(addMenuItemViewModel);
